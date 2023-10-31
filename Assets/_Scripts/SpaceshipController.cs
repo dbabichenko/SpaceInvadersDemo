@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
@@ -16,18 +14,18 @@ public class SpaceshipController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             Vector2 newPos = new Vector2(
-                gameObject.transform.position.x - speed,
+                gameObject.transform.position.x - speed * Time.deltaTime,
                 gameObject.transform.position.y
                 );
             gameObject.transform.position = newPos;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             Vector2 newPos = new Vector2(
-                gameObject.transform.position.x + speed,
+                gameObject.transform.position.x + speed * Time.deltaTime,
                 gameObject.transform.position.y
                 );
             gameObject.transform.position = newPos;

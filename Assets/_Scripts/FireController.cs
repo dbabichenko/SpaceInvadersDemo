@@ -14,4 +14,22 @@ public class FireController : MonoBehaviour
             ) ;
         gameObject.transform.position = newPos;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Boundary")
+        {
+            // Destroy self
+            Destroy(gameObject);
+        }
+        else if(collision.gameObject.tag == "Alien")
+        {
+            // Destroy alien
+            // collision.gameObject.GetComponent<AudioSource>().Play();
+            Destroy(collision.gameObject);
+            // Destroy self
+            Destroy(gameObject);
+
+        }
+    }
 }
